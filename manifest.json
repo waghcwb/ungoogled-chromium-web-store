@@ -1,0 +1,33 @@
+{
+  "name": "Ungoogled Chromium Web Store",
+  "description": "Download extensions from Chrome Web Store",
+  "version": "1.0",
+  "manifest_version": 2,
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "content_scripts": [
+    {
+      "all_frames": false,
+      "js": ["content.js"],
+      "css": ["css/ungoogled-chromium.css"],
+      "matches": ["*://chrome.google.com/webstore/*"],
+      "run_at": "document_end"
+    }
+  ],
+
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/64.png",
+    "128": "icons/128.png"
+  },
+
+  "browser_action": {
+    "default_icon": "icons/64.png",
+    "default_title": "Ungoogled Chromium Web Store"
+  },
+
+  "permissions": ["*://chrome.google.com/webstore/*"]
+}
